@@ -18,7 +18,9 @@ export default {
       method: 'DELETE'
     })
   },
-  updateBooking(payload, id){
+  updateBooking(payload){
+    const id = payload._id
+    delete payload._id
     return fetch(baseURL + id, {
       method: 'PUT',
       body: JSON.stringify(payload),

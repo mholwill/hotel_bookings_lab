@@ -17,5 +17,9 @@ export default {
 </script>
 
 <style lang="css" scoped>
-
+  /* #bookingsGrid {
+    border: 2px dotted green;
+    width: 50%;
+    margin: auto;
+  } */
 </style>

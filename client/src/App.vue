@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <h1>CodeClanHotel<span id="dot">.</span></h1>
     <bookings-form />
     <bookings-grid :bookings="bookings"/>
   </div>
@@ -26,6 +27,16 @@ export default {
     eventBus.$on('submit-booking', payload => {
       BookingService.postBooking(payload)
       .then(booking => this.bookings.push(booking))
+    })
+
+    eventBus.$on('update-booking', (payload) => {
+      BookingService.updateBooking(payload)
+        .then(data => this.bookings = data)
+      // .then((updatedBooking) => {
+      //   const index = this.bookings.findIndex(booking => booking._id === id);
+      //   this.bookings = this.bookings.map(booking => {
+      //     return (booking._id === updatedBooking._id) ? {...booking} : booking
+      //   })
     })
 
     eventBus.$on('delete-booking', id => {
@@ -64,6 +75,9 @@ export default {
 </script>
 
 <style>
+
+@import url('https://fonts.googleapis.com/css?family=Nunito&display=swap');
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -72,4 +86,14 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+
+ #dot {
+   color: green;
+ }
+
+ h1 {
+   font-family: 'Nunito', sans-serif;
+   font-size: 4em;
+   color: dimgrey;
+ }
 </style>

@@ -1,5 +1,6 @@
 <template lang="html">
-  <form id="booking-from" @submit.prevent="handleSubmit">
+  <div id="booking-form">
+  <form id="booking-form" @submit.prevent="handleSubmit">
     <h2>Add a booking</h2>
     <div class="form-wrap">
       <label for="name">Name: </label>
@@ -15,6 +16,7 @@
     </div>
     <input type="submit" id="save" value="Save Booking">
   </form>
+</div>
 </template>
 
 <script>
@@ -45,6 +47,10 @@ export default {
   }
 }
 </script>
+
+#booking-form {
+  border: 2px solid green;
+}
 
 <style lang="css" scoped>
 </style>
