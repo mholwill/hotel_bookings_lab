@@ -32,6 +32,14 @@ export default {
       headers: {'Content-Type': 'application/json'}
     })
     .then(res => res.json())
+  },
+
+  updateCheckOutStatus(id){
+    return fetch(baseURL + id + "/check-out/", {
+      method: 'PATCH',
+      headers: {'Content-Type': 'application/json'}
+    })
+    .then(res => res.json())
   }
 
 

@@ -40,7 +40,16 @@ export default {
       BookingService.updateCheckInStatus(id)
       .then((updatedBooking) => {
         const index = this.bookings.findIndex(booking => booking._id === id);
-        // this.bookings[index].checkedIn = true;
+        this.bookings = this.bookings.map(booking => {
+          return (booking._id === updatedBooking._id) ? {...booking, checkedIn: updatedBooking.checkedIn} : booking
+        })
+      })
+    })
+
+    eventBus.$on('checkout-guest', id => {
+      BookingService.updateCheckOutStatus(id)
+      .then((updatedBooking) => {
+        const index = this.bookings.findIndex(booking => booking._id === id);
         this.bookings = this.bookings.map(booking => {
           return (booking._id === updatedBooking._id) ? {...booking, checkedIn: updatedBooking.checkedIn} : booking
         })

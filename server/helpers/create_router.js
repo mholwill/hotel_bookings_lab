@@ -73,6 +73,23 @@ const createRouter = function(collection) {
      });
    });
 
+   router.patch('/:id/check-out/', (req,  res) => {
+     const id = req.params.id;
+     collection.findOneAndUpdate(
+       {_id: ObjectId(id)},
+       {$set: {checkedIn: false}},
+       {returnOriginal: false}
+     )
+     .then((result) => {
+       res.json(result.value)
+     })
+     .catch((err) => {
+       console.error(err)
+       res.status(500);
+       res.json({status: 500, error: err});
+     });
+   });
+
    router.delete('/:id', (req, res) => {
      const id = req.params.id;
      collection.deleteOne({_id: ObjectId(id)})

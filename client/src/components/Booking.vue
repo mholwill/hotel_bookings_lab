@@ -10,6 +10,7 @@
       <h5>{{booking.numberOfGuests}}</h5>
       <h6>{{booking.email}}</h6>
       <button @click="checkInGuest(booking._id)">Check in Guest</button>
+      <button @click="checkOutGuest(booking._id)">Check Out Guest</button>
       <button @click="handleDelete(booking._id)">Delete Booking</button>
     </details>
   </div>
@@ -27,7 +28,9 @@ export default {
     },
     checkInGuest(id) {
       eventBus.$emit('checkin-guest', id)
-      booking.checkedIn = true;
+    },
+    checkOutGuest(id) {
+      eventBus.$emit('checkout-guest', id)
     }
   }
 }
@@ -40,6 +43,15 @@ summary {
 }
 details {
   margin: 40px auto;
+}
+
+details::selection {
+  outline: 0;
+  border: none;
+}
+
+details:active {
+  outline: 0;
 }
 
 .green{
