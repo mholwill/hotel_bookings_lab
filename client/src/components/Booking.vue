@@ -4,6 +4,7 @@
     <h5>{{booking.numberOfGuests}}</h5>
     <h6>{{booking.email}}</h6>
     <h4>{{booking.checkedIn}}</h4>
+    <button @click="handleDelete(booking._id)">Delete Booking</button>
   </div>
 </template>
 
