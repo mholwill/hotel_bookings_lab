@@ -19,7 +19,7 @@
         <form id="update-booking" method="put" @submit="handleUpdate">
           <div class="form-wrap">
             <label for="updatedName">Name: </label>
-            <input type="text" id="updatedName" value="booking.name" required>
+            <input type="text" id="updatedName" :value="booking.name" required>
           </div>
           <div class="form-wrap">
             <label for="updatedEmail">Email: </label>

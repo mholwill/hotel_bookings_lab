@@ -8,7 +8,7 @@
     </div>
     <div class="form-wrap">
       <label for="email">Email: </label>
-      <input type="text" id="email" v-model="email" required>
+      <input type="email" id="email" v-model="email" required>
     </div>
     <div class="form-wrap">
       <label for="numberOfGuests">Number of Guests: </label>
